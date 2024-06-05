@@ -1,0 +1,55 @@
+<table mat-table [dataSource]="geofences" class="mat-elevation-z8">
+  <!-- GeofenceID column -->
+  <ng-container matColumnDef="GeofenceID">
+    <th mat-header-cell *matHeaderCellDef> Geofence ID </th>
+    <td mat-cell *matCellDef="let geofence"> {{geofence.GeofenceID}} </td>
+  </ng-container>
+
+  <!-- GeofenceType column -->
+  <ng-container matColumnDef="GeofenceType">
+    <th mat-header-cell *matHeaderCellDef> Geofence Type </th>
+    <td mat-cell *matCellDef="let geofence"> {{geofence.GeofenceType}} </td>
+  </ng-container>
+
+  <!-- AddedDate column -->
+  <ng-container matColumnDef="AddedDate">
+    <th mat-header-cell *matHeaderCellDef> Added Date </th>
+    <td mat-cell *matCellDef="let geofence"> {{geofence.AddedDate}} </td>
+  </ng-container>
+
+  <!-- StrokeColor column -->
+  <ng-container matColumnDef="StrokeColor">
+    <th mat-header-cell *matHeaderCellDef> Stroke Color </th>
+    <td mat-cell *matCellDef="let geofence"> {{geofence.StrokeColor}} </td>
+  </ng-container>
+
+  <!-- StrokeOpacity column -->
+  <ng-container matColumnDef="StrokeOpacity">
+    <th mat-header-cell *matHeaderCellDef> Stroke Opacity </th>
+    <td mat-cell *matCellDef="let geofence"> {{geofence.StrokeOpacity}} </td>
+  </ng-container>
+
+  <!-- StrokeWeight column -->
+  <ng-container matColumnDef="StrokeWeight">
+    <th mat-header-cell *matHeaderCellDef> Stroke Weight </th>
+    <td mat-cell *matCellDef="let geofence"> {{geofence.StrokeWeight}} </td>
+  </ng-container>
+
+  <!-- FillColor column -->
+  <ng-container matColumnDef="FillColor">
+    <th mat-header-cell *matHeaderCellDef> Fill Color </th>
+    <td mat-cell *matCellDef="let geofence"> {{geofence.FillColor}} </td>
+  </ng-container>
+
+  <!-- FillOpacity column -->
+  <ng-container matColumnDef="FillOpacity">
+    <th mat-header-cell *matHeaderCellDef> Fill Opacity </th>
+    <td mat-cell *matCellDef="let geofence"> {{geofence.FillOpacity}} </td>
+  </ng-container>
+
+  <!-- Add more columns as needed -->
+
+  <!-- Define the table columns -->
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

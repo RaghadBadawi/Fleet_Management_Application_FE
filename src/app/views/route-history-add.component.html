@@ -1,0 +1,15 @@
+<h2 mat-dialog-title>Add Route History</h2>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Select Vehicle Number</mat-label>
+    <mat-select [(ngModel)]="vehicleNumber">
+      <mat-option *ngFor="let vehicle of vehicles" [value]="vehicle.VehicleNumber">
+        {{ vehicle.VehicleNumber }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button color="primary" (click)="onSave()">Save</button>
+</div>

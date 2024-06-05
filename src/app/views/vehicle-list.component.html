@@ -1,0 +1,84 @@
+<h1>Vehicle List</h1>
+
+<button mat-raised-button color="primary" (click)="addVehicle()">Add Vehicle</button>
+<button mat-raised-button color="primary" (click)="goToDriverList()">Go to Driver List</button>
+<button mat-raised-button color="primary" (click)="goToGeofenceList()">Go to Geofence List</button>
+
+
+<table mat-table [dataSource]="vehicles" class="mat-elevation-z8">
+  <!-- VehicleID column -->
+  <ng-container matColumnDef="VehicleID">
+    <th mat-header-cell *matHeaderCellDef> Vehicle ID </th>
+    <td mat-cell *matCellDef="let vehicle"> {{vehicle.VehicleID}} </td>
+  </ng-container>
+
+  <!-- VehicleNumber column -->
+  <ng-container matColumnDef="VehicleNumber">
+    <th mat-header-cell *matHeaderCellDef> Vehicle Number </th>
+    <td mat-cell *matCellDef="let vehicle"> {{vehicle.VehicleNumber}} </td>
+  </ng-container>
+
+  <!-- VehicleType column -->
+  <ng-container matColumnDef="VehicleType">
+    <th mat-header-cell *matHeaderCellDef> Vehicle Type </th>
+    <td mat-cell *matCellDef="let vehicle"> {{vehicle.VehicleType}} </td>
+  </ng-container>
+
+  <!-- Status column -->
+  <ng-container matColumnDef="Status">
+    <th mat-header-cell *matHeaderCellDef> Status </th>
+    <td mat-cell *matCellDef="let vehicle"> {{vehicle.Status}} </td>
+  </ng-container>
+
+  <!-- LastDirection column -->
+  <ng-container matColumnDef="LastDirection">
+    <th mat-header-cell *matHeaderCellDef> Last Direction </th>
+    <td mat-cell *matCellDef="let vehicle"> {{vehicle.LastDirection}} </td>
+  </ng-container>
+
+  <!-- LastStatus column -->
+  <ng-container matColumnDef="LastStatus">
+    <th mat-header-cell *matHeaderCellDef> Last Status </th>
+    <td mat-cell *matCellDef="let vehicle"> {{vehicle.LastStatus}} </td>
+  </ng-container>
+
+  <!-- LastAddress column -->
+  <ng-container matColumnDef="LastAddress">
+    <th mat-header-cell *matHeaderCellDef> Last Address </th>
+    <td mat-cell *matCellDef="let vehicle"> {{vehicle.LastAddress}} </td>
+  </ng-container>
+
+  <!-- LastLatitude column -->
+  <ng-container matColumnDef="LastLatitude">
+    <th mat-header-cell *matHeaderCellDef> Last Latitude </th>
+    <td mat-cell *matCellDef="let vehicle"> {{vehicle.LastLatitude}} </td>
+  </ng-container>
+
+  <!-- LastLongitude column -->
+  <ng-container matColumnDef="LastLongitude">
+    <th mat-header-cell *matHeaderCellDef> Last Longitude </th>
+    <td mat-cell *matCellDef="let vehicle"> {{vehicle.LastLongitude}} </td>
+  </ng-container>
+
+  <!-- Actions column -->
+  <ng-container matColumnDef="Actions">
+    <th mat-header-cell *matHeaderCellDef> Actions </th>
+    <td mat-cell *matCellDef="let vehicle">
+      <button mat-icon-button color="primary" (click)="editVehicle(vehicle)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" (click)="deleteVehicle(vehicle.VehicleID)">
+        <mat-icon>delete</mat-icon>
+      </button>
+      <button mat-icon-button (click)="showMore(vehicle.VehicleID)">
+        <mat-icon>info</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <!-- Header row -->
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+
+  <!-- Data rows -->
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

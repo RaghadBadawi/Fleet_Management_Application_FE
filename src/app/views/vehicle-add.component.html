@@ -1,0 +1,63 @@
+<h1 mat-dialog-title>{{ vehicle.VehicleID ? 'Edit' : 'Add' }} Vehicle</h1>
+<div mat-dialog-content class="form-container">
+  <form #vehicleForm="ngForm">
+    <div class="form-row">
+      <mat-form-field class="form-field">
+        <input matInput placeholder="Vehicle Number" [(ngModel)]="vehicle.VehicleNumber" name="VehicleNumber">
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <input matInput placeholder="Vehicle Type" [(ngModel)]="vehicle.VehicleType" name="VehicleType">
+      </mat-form-field>
+    </div>
+    <div class="form-row">
+      <mat-form-field class="form-field">
+        <input matInput placeholder="Driver ID" [(ngModel)]="vehicle.DriverID" name="DriverID">
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <input matInput placeholder="Vehicle Make" [(ngModel)]="vehicle.VehicleMake" name="VehicleMake">
+      </mat-form-field>
+    </div>
+    <div class="form-row">
+      <mat-form-field class="form-field">
+        <input matInput placeholder="Vehicle Model" [(ngModel)]="vehicle.VehicleModel" name="VehicleModel">
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <input matInput placeholder="Purchase Date" [(ngModel)]="vehicle.PurchaseDate" name="PurchaseDate" type="date">
+      </mat-form-field>
+    </div>
+    <div class="form-row">
+    
+      <mat-form-field class="form-field">
+        <input matInput placeholder="Latitude" [(ngModel)]="vehicle.Latitude" name="Latitude">
+      </mat-form-field>
+    </div>
+    <div class="form-row">
+      <mat-form-field class="form-field">
+        <input matInput placeholder="Longitude" [(ngModel)]="vehicle.Longitude" name="Longitude">
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <input matInput placeholder="Vehicle Direction" [(ngModel)]="vehicle.VehicleDirection" name="VehicleDirection">
+      </mat-form-field>
+    </div>
+    <div class="form-row">
+      <mat-form-field class="form-field">
+        <input matInput placeholder="Status" [(ngModel)]="vehicle.Status" name="Status">
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <input matInput placeholder="Vehicle Speed" [(ngModel)]="vehicle.VehicleSpeed" name="VehicleSpeed">
+      </mat-form-field>
+    </div>
+    <div class="form-row">
+      <mat-form-field class="form-field">
+        <input matInput placeholder="Epoch" [(ngModel)]="vehicle.Epoch" name="Epoch">
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <input matInput placeholder="Address" [(ngModel)]="vehicle.Address" name="Address">
+      </mat-form-field>
+    </div>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button (click)="onSaveClick()">Save</button>
+</div>

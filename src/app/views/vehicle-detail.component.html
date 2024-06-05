@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Vehicle Details</h1>
+<div mat-dialog-content *ngIf="vehicleInfo">
+  <p><strong>Vehicle ID:</strong> {{vehicleInfo.VehicleID}}</p>
+  <p><strong>Driver ID:</strong> {{vehicleInfo.DriverID}}</p>
+  <p><strong>Vehicle Make:</strong> {{vehicleInfo.VehicleMake}}</p>
+  <p><strong>Vehicle Model:</strong> {{vehicleInfo.VehicleModel}}</p>
+  <p><strong>Purchase Date:</strong> {{vehicleInfo.PurchaseDate | date:'medium'}}</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Close</button>
+</div>

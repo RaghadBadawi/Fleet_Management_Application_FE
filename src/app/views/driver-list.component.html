@@ -1,0 +1,119 @@
+<div>
+  <button mat-raised-button color="primary" (click)="addDriver()">Add Driver</button>
+</div>
+
+<table mat-table [dataSource]="drivers" class="mat-elevation-z8">
+  <ng-container matColumnDef="DriverID">
+    <th mat-header-cell *matHeaderCellDef> Driver ID </th>
+    <td mat-cell *matCellDef="let driver"> {{driver.DriverID}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="DriverName">
+    <th mat-header-cell *matHeaderCellDef> Driver Name </th>
+    <td mat-cell *matCellDef="let driver"> {{driver.DriverName}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="PhoneNumber">
+    <th mat-header-cell *matHeaderCellDef> Phone Number </th>
+    <td mat-cell *matCellDef="let driver"> {{driver.PhoneNumber}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="VehicleNumber">
+    <th mat-header-cell *matHeaderCellDef> Vehicle Number </th>
+    <td mat-cell *matCellDef="let driver">
+      <mat-select [(ngModel)]="selectedVehicle[driver.DriverID]" (selectionChange)="onVehicleNumberChange(driver.DriverID, $event.value)">
+        <mat-option *ngFor="let vehicle of vehicleNumbers" [value]="vehicle.VehicleID">
+          {{ vehicle.VehicleNumber }}
+        </mat-option>
+      </mat-select>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Timestamp">
+    <th mat-header-cell *matHeaderCellDef> Timestamp </th>
+    <td mat-cell *matCellDef="let driver">
+      <ng-container *ngFor="let history of routeHistories[driver.DriverID]">
+        {{history.Timestamp}}
+      </ng-container>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Latitude">
+    <th mat-header-cell *matHeaderCellDef> Latitude </th>
+    <td mat-cell *matCellDef="let driver">
+      <ng-container *ngFor="let history of routeHistories[driver.DriverID]">
+        {{history.Latitude}}
+      </ng-container>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Longitude">
+    <th mat-header-cell *matHeaderCellDef> Longitude </th>
+    <td mat-cell *matCellDef="let driver">
+      <ng-container *ngFor="let history of routeHistories[driver.DriverID]">
+        {{history.Longitude}}
+      </ng-container>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="VehicleDirection">
+    <th mat-header-cell *matHeaderCellDef> Vehicle Direction </th>
+    <td mat-cell *matCellDef="let driver">
+      <ng-container *ngFor="let history of routeHistories[driver.DriverID]">
+        {{history.VehicleDirection}}
+      </ng-container>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Status">
+    <th mat-header-cell *matHeaderCellDef> Status </th>
+    <td mat-cell *matCellDef="let driver">
+      <ng-container *ngFor="let history of routeHistories[driver.DriverID]">
+        {{history.Status}}
+      </ng-container>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="VehicleSpeed">
+    <th mat-header-cell *matHeaderCellDef> Vehicle Speed </th>
+    <td mat-cell *matCellDef="let driver">
+      <ng-container *ngFor="let history of routeHistories[driver.DriverID]">
+        {{history.VehicleSpeed}}
+      </ng-container>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Epoch">
+    <th mat-header-cell *matHeaderCellDef> Epoch </th>
+    <td mat-cell *matCellDef="let driver">
+      <ng-container *ngFor="let history of routeHistories[driver.DriverID]">
+        {{history.Epoch}}
+      </ng-container>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Address">
+    <th mat-header-cell *matHeaderCellDef> Address </th>
+    <td mat-cell *matCellDef="let driver">
+      <ng-container *ngFor="let history of routeHistories[driver.DriverID]">
+        {{history.Address}}
+      </ng-container>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Actions">
+    <th mat-header-cell *matHeaderCellDef> Actions </th>
+    <td mat-cell *matCellDef="let driver">
+      <button mat-icon-button color="primary" (click)="editDriver(driver)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" (click)="deleteDriver(driver.DriverID)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+

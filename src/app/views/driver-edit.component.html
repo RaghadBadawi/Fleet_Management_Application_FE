@@ -1,0 +1,16 @@
+
+<h1 mat-dialog-title>{{ data.driver.DriverID ? 'Edit Driver' : 'Add Driver' }}</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Driver Name</mat-label>
+    <input matInput [(ngModel)]="driver.DriverName">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Phone Number</mat-label>
+    <input matInput [(ngModel)]="driver.PhoneNumber">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button (click)="onSaveClick()">Save</button>
+</div>
